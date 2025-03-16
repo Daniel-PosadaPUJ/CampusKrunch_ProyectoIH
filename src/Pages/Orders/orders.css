@@ -1,0 +1,39 @@
+.orders-container {
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+}
+
+.orders-header {
+  background-color: #00a6fb;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.orders-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.orders-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.orders-empty {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.orders-empty-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.orders-empty-text {
+  color: #4b5563;
+}
