@@ -7,9 +7,10 @@ export default function ProductCard({ product }) {
   const [liked, setLiked] = useState(false);
 
   const handleLikeClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setLiked(!liked);
+    e.preventDefault();     // Evita que el enlace (<Link>) se active al hacer clic.
+    // Evita que el evento se propague hacia elementos padres, sin esto el click en el corazon sería un click en el Link.
+    e.stopPropagation();    
+    setLiked(!liked);       // Alterna el estado entre true/false.
   };
 
   return (
