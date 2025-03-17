@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import "./homepage.css";
 import ProductCard from "../../Components/ProductCard/ProductCard.jsx";
 import { useProducts } from "../../Contexts/ProductContext";
+
+/*lucide-react es una librería de íconos para React que ofrece una colección 
+de íconos modernos, limpios y altamente personalizables, 'Filter' es un ícono
+de filtro para el botón de búsqueda*/
 import { Filter } from "lucide-react";
 
 export default function HomePage() {
-  const { products } = useProducts(); // Usamos el hook personalizado que hicimos en el context para crear productos
+  /* Usamos el hook personalizado que hicimos en el context para obtener los productos
+  del contexto*/
+  const { products } = useProducts();
   const [visibleProducts, setVisibleProducts] = useState(8);
   const hasMoreProducts = visibleProducts < products.length;
 
@@ -21,6 +27,8 @@ export default function HomePage() {
       </div>
 
       <div className="product-grid">
+        {/*Aquí es donde se muestran los productos disponibles, la función 'slice'
+        se encarga de mostrar solo los primeros 'visibleProducts' productos. */}
         {products && products.slice(0, visibleProducts).map((product) => (
           <div key={product.id}>
             <ProductCard product={product} />

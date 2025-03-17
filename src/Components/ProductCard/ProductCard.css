@@ -1,30 +1,30 @@
 .product-card {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    height: 350px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-  }
+  position: relative; /* Permite que los elementos hijos posicionados (como la imagen y el overlay) se ubiquen respecto a esta tarjeta */
+  border-radius: 12px; /* Esquinas redondeadas */
+  overflow: hidden; /* Evita que los elementos hijos sobresalgan del borde redondeado */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra suave para dar efecto de elevación */
+  height: 350px; /* Altura fija para uniformidad */
+  cursor: pointer; /* El cursor cambia a mano para indicar que es interactivo */
+  transition: transform 0.3s ease-in-out; /* Efecto suave (lento-rapido-lento) de escalado */
+}
   
   .product-card:hover {
     transform: scale(1.02);
   }
   
   .product-image {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-  }
+    position: absolute; /* Permite que se expanda por completo dentro del contenedor */
+    inset: 0; /* Estira el elemento en todas las direcciones (top, right, bottom, left = 0) */
+    background-size: cover; /* Escala la imagen para cubrir toda el área */
+    background-position: center; /* Centra la imagen */
+    z-index: 0; /* Coloca la imagen en el fondo */
+}
   
   .gradient-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
-    z-index: 10;
+    z-index: 1;
   }
   
   .product-content {
@@ -33,24 +33,24 @@
     left: 0;
     right: 0;
     padding: 16px;
-    z-index: 20;
+    z-index: 2;
   }
   
   .tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
+    display: flex; /* Organiza las etiquetas en fila */
+    flex-wrap: wrap; /* Permite que se distribuyan en varias líneas si no caben */
+    gap: 8px; /* Espacio entre etiquetas */
+    margin-bottom: 8px; /* Espacio inferior respecto al resto del contenido */
+}
+
   
   .tag {
     background-color: white;
     color: black;
     font-size: 12px;
     padding: 4px 8px;
-    border-radius: 9999px;
-  }
-  
+    border-radius: 9999px; /* Forma completamente redonda */
+} 
 
   .product-name-card  {
     font-size: 22px;
@@ -65,18 +65,18 @@
   }
   
   .like-button {
-    position: absolute;
+    position: absolute; /* Se ubica en la esquina superior derecha */
     top: 12px;
     right: 12px;
-    z-index: 20;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    padding: 8px;
-    border-radius: 50%;
+    z-index: 20; /* Asegura que esté sobre la imagen */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo transparente */
+    backdrop-filter: blur(4px); /* Efecto difuminado que resalta el botón */
+    padding: 8px; /* Tamaño uniforme */
+    border-radius: 50%; /* Forma circular */
     border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
+    cursor: pointer; /* Indica que es interactivo */
+    transition: background-color 0.3s ease-in-out; /* Efecto suave al pasar el cursor */
+}
   
   .like-button:hover {
     background-color: rgba(255, 255, 255, 0.4);
