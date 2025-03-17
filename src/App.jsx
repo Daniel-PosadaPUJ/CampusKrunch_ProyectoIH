@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
 
 import HomePage from "./Pages/Homepage/homepage.jsx";
 import HelpPage from "./Pages/Help/help.jsx";
@@ -26,7 +25,7 @@ function App() {
           <Route path="/pedidos" element={<OrdersPage />} />
           <Route path="/vender" element={<SellPage />} />
           <Route path="/favoritos" element={<FavoritesPage />} />
-          <Route path="/producto/:id" element={<ProductPage />} /> {/* Ruta del producto */}
+          <Route path="/producto/:id" element={<ProductPage />} /> 
         </Routes>
         <Footer />
       </Router>

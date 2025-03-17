@@ -106,18 +106,6 @@ const initialProducts  = [
       "https://img-global.cpcdn.com/recipes/22679109c6bc9d20/400x400cq70/photo.jpg",
     ],
   },
-  {
-    id: "9",
-    name: "Mi dignidad",
-    description: "Ayuda jajaj ya no sé qué hacer",
-    price: 250,
-    seller: "Mapache",
-    tags: ["jajaja", "help", "me"],
-    imageUrl: "https://plus.unsplash.com/premium_photo-1663126677451-01b5cd3c5f9f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGVzZXNwZXJhY2klQzMlQjNufGVufDB8fDB8fHww",
-    images: [
-      "https://plus.unsplash.com/premium_photo-1663126677451-01b5cd3c5f9f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGVzZXNwZXJhY2klQzMlQjNufGVufDB8fDB8fHww",
-    ],
-  },
 ];
 
 export default initialProducts;
