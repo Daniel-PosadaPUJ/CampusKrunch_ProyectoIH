@@ -106,6 +106,19 @@ const initialProducts  = [
       "https://img-global.cpcdn.com/recipes/22679109c6bc9d20/400x400cq70/photo.jpg",
     ],
   },
+  {
+    id: "9",
+    name: "Pizza Pepperoni",
+    description: "Pizza recién horneada con abundante pepperoni, queso fundido y una base crujiente.",
+    price: 350,
+    seller: "Mariana Pérez",
+    tags: ["comidas", "pizza", "cena"],
+    imageUrl: "https://www.novachef.es/media/images/pizza-pepperoni.jpg",
+    images: [
+      "https://papajohns.vtexassets.com/arquivos/ids/155958-800-auto?v=637732053132170000&width=800&height=auto&aspect=truehttps://atsloanestable.com/wp-content/uploads/2023/06/new-york-style-pizza2.jpg",
+      "https://www.novachef.es/media/images/pizza-pepperoni.jpg",
+    ],
+  },
 ];
 
 export default initialProducts;

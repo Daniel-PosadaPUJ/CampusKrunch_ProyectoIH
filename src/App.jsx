@@ -10,8 +10,6 @@ import ProductPage from "./Pages/Product/product.jsx";
 import Header from "./Components/Header/Header.jsx";
 import Footer from "./Components/Footer/footer.jsx";
 
-import products from "./Data/products.js";
-
 import { ProductProvider } from "./Contexts/ProductContext";
 
 function App() {
