@@ -1,5 +1,5 @@
 /* Importa la fuente externa desde Google Fonts, usando @import.
-Tambien existe la alternativa de usar <link> rel="stylesheet" href="https://fonts.goog...*/
+Tambien existe la alternativa de usar <link> rel="stylesheet" href="https://fonts.goog...>*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 body {
@@ -9,7 +9,10 @@ body {
   font-family: "Poppins", sans-serif; 
 }
 
-
+/* Esta práctica es llamada CSS Reset, el símbolo '*' hace referencia a todas las etiquetas
+HTML del proyecto, y lo que hace es eliminar por defecto todas las márgenes y paddings, además
+modifica la forma en que se calculan los tamaños de los elementos, adicionando en el cálculo las 
+márgenes y paddings. */
 * {
   margin: 0;
   padding: 0;
