@@ -1,21 +1,22 @@
+/* El padding utiliza la unidad 'rem', que se basa en el tamaño de fuente raíz (html).
+Esto facilita que el diseño sea escalable y responsivo, por defecto es 16px si no se modifica*/
+
 .product-container {
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    max-width: 1200px;
-  }
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 2rem 1rem; 
+  max-width: 1200px; /* Limita el ancho máximo del contenedor */
+}
+
+.product-grid {
+  display: grid; /* Utiliza el sistema de CSS Grid para crear una cuadrícula */
   
-  .product-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+  /*fr distribuye solo el espacio restante después de colocar elementos con tamaños fijos.*/
+  grid-template-columns: repeat(2, 1fr); /* Crea dos columnas de igual tamaño */
   
-  @media (min-width: 768px) {
-    .product-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
+  /*gap: agrega espacio uniforme entre elementos hijos.*/
+  gap: 2rem; 
+}
+
   .product-left-column {
     display: flex;
     flex-direction: column;
@@ -41,6 +42,7 @@
   
   .product-tags {
     display: flex;
+    /* Permite que los elementos hijos pasen a la siguiente fila si no caben en el ancho */
     flex-wrap: wrap;
     gap: 0.5rem;
   }
@@ -49,18 +51,18 @@
     background-color: #f3f4f6;
     color: #374151;
     font-size: 0.875rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
+    padding: 0.25rem 0.75rem; /* Espaciado interno arriba/abajo e izquierda/derecha */
+    border-radius: 9999px; /* Bordes completamente redondeados (forma de píldora) */
   }
   
   .product-description-container {
-    background-color: white;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e5e7eb;
-  }
-  
+    background-color: white;      /* Fondo blanco */
+    border-radius: 0.5rem;        /* Bordes suavemente redondeados */
+    padding: 1.5rem;              /* Espaciado interno */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #e5e7eb;   /* Borde delgado en gris claro */
+}
+
   .product-description-title {
     font-size: 1.25rem;
     font-weight: 600;
@@ -83,9 +85,9 @@
     padding: 1.5rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
-    position: sticky;
-    top: 6rem;
-  }
+    position: sticky; /* Se queda "pegado" en la parte superior mientras se hace scroll */
+    top: 6rem;        /* Se adhiere a 6rem desde el borde superior */
+}
   
   .contact-form-title {
     font-size: 1.25rem;

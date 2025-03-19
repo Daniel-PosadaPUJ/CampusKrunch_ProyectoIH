@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import "./ContactForm.css"
 
@@ -18,10 +16,13 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  /*Se simula el envío del formulario a alguna base de datos*/
   const handleSubmit = (e) => {
+    /*Evita que la página se recargue al enviar el formulario*/
     e.preventDefault()
     setIsSubmitting(true)
 
+    /*Simula un retraso de 1.5 segundos (1500 milisegundos) para imitar el tiempo que tomaría enviar los datos a un servidor.*/
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSubmitted(true)
@@ -68,6 +69,7 @@ export default function ContactForm() {
 
           <div>
             <label htmlFor="message">Mensaje (opcional)</label>
+            {/*Campo de texto multilínea para que el usuario ingrese un mensaje.*/}
             <textarea
               id="message"
               name="message"

@@ -23,6 +23,7 @@ function App() {
           <Route path="/pedidos" element={<OrdersPage />} />
           <Route path="/vender" element={<SellPage />} />
           <Route path="/favoritos" element={<FavoritesPage />} />
+          {/*Aquí :id hace referencia a un parámetro dinámico*/}
           <Route path="/producto/:id" element={<ProductPage />} /> 
         </Routes>
         <Footer />

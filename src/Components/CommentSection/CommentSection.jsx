@@ -2,7 +2,7 @@ import { useState } from "react";
 import { User } from "lucide-react";
 import "./CommentSection.css";
 
-const sampleComments = [
+const comentariosEjemplo = [
   {
     id: "1",
     user: "Ana García",
@@ -18,7 +18,7 @@ const sampleComments = [
 ];
 
 export default function CommentSection({ productId }) {
-  const [comments, setComments] = useState(sampleComments);
+  const [comments, setComments] = useState(comentariosEjemplo);
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 

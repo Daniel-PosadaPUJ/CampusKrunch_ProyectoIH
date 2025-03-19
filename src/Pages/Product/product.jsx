@@ -1,9 +1,12 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useProducts } from "../../Contexts/ProductContext"; //  hook useProducts
+
+import { useProducts } from "../../Contexts/ProductContext"; 
+
 import ProductGallery from "../../Components/ProductGallery/ProductGallery.jsx";
 import ContactForm from "../../Components/ContactForm/ContactForm.jsx";
 import CommentSection from "../../Components/CommentSection/CommentSection.jsx";
+
 import "./product.css";
 
 export default function ProductPage() {

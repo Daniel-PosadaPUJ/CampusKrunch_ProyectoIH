@@ -49,6 +49,8 @@
   
   .contact-form button:disabled {
     background: #cccccc;
+    /*Cambia el cursor a un ícono de "no permitido" (un círculo con una diagonal) 
+    cuando el usuario pasa el mouse sobre el botón desactivado.*/
     cursor: not-allowed;
   }
   
