@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./homepage.css";
 import ProductCard from "../../Components/ProductCard/ProductCard.jsx";
-import { useProducts } from "../../Contexts/ProductContext";
+import { useSelector } from "react-redux";
 
 /*lucide-react es una librería de íconos para React que ofrece una colección 
 de íconos modernos, limpios y altamente personalizables, 'Filter' es un ícono
@@ -9,9 +9,8 @@ de filtro para el botón de búsqueda*/
 import { Filter } from "lucide-react";
 
 export default function HomePage() {
-  /* Usamos el hook personalizado que hicimos en el context para obtener los productos
-  del contexto*/
-  const { products } = useProducts();
+  /* Usamos useSelector para acceder directamente a los productos desde el store de Redux Toolkit */
+  const products = useSelector((state) => state.products);
   const [visibleProducts, setVisibleProducts] = useState(8);
   const hasMoreProducts = visibleProducts < products.length;
 

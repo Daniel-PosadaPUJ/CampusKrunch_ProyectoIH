@@ -10,7 +10,7 @@ import ProductPage from "./Pages/Product/product.jsx";
 import Header from "./Components/Header/Header.jsx";
 import Footer from "./Components/Footer/footer.jsx";
 
-import { ProductProvider } from "./Contexts/ProductContext";
+import { ProductProvider } from "./Global/ReduxProducts.jsx";
 
 function App() {
   return (

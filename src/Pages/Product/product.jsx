@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { useProducts } from "../../Contexts/ProductContext"; 
+import { useProducts } from "../../Global/ReduxProducts"; 
 
 import ProductGallery from "../../Components/ProductGallery/ProductGallery.jsx";
 import ContactForm from "../../Components/ContactForm/ContactForm.jsx";
@@ -11,7 +11,7 @@ import "./product.css";
 
 export default function ProductPage() {
   const { id } = useParams();
-  const { products } = useProducts(); // se sacan los productos del contexto
+  const products = useProducts(); // Se extraen los productos desde el store de Redux Toolkit
   const product = products.find((p) => p.id === id);
 
   if (!product) {

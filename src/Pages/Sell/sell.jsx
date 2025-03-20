@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../Global/ReduxProducts"; // Acción de Redux
 import { X } from "lucide-react";
-import "./sell.css"; 
-import { useProducts } from "../../Contexts/ProductContext";
+import "./sell.css";
 
 export default function SellPage() {
-  const { addProduct } = useProducts();
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -48,121 +49,64 @@ export default function SellPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Crear el objeto del producto
     const newProduct = {
-      id: String(Date.now()), 
+      id: String(Date.now()),
       name: formData.name,
       description: formData.description,
       price: parseInt(formData.price, 10),
-      seller: "Usuario Actual", 
-      tags: formData.tags.split(",").map((tag) => tag.trim()).filter(tag => tag), 
+      seller: "Usuario Actual",
+      tags: formData.tags.split(",").map((tag) => tag.trim()).filter(Boolean),
       imageUrl: formData.imageUrl,
-      images: [formData.imageUrl, ...additionalImages.filter(url => url)], 
+      images: [formData.imageUrl, ...additionalImages.filter(Boolean)],
     };
 
-    // Agregar el producto al estado global
-    addProduct(newProduct);
+    dispatch(addProduct(newProduct));
 
-    // Simulamos el envío del formulario
     setTimeout(() => {
       setIsSubmitting(false);
       resetForm();
       setShowSuccessModal(true);
-      
-      // oopcional: auto-cerrar el modal después de 3 segundos
-      setTimeout(() => {
-        setShowSuccessModal(false);
-      }, 3000);
+      setTimeout(() => setShowSuccessModal(false), 3000);
     }, 1500);
   };
 
-  // esto es el modal (la ventanita que se abre al enviar bien el formulario)
-  const SuccessModal = ({ onClose }) => {
-    return (
-      <div className="modal-overlay">
-        <div className="modal-content">
-          <button className="modal-close-btn" onClick={onClose}>
-            <X size={24} />
-          </button>
-          <div className="success-message">
-            <h2>¡Producto publicado!</h2>
-            <p>Tu producto ha sido publicado exitosamente.</p>
-            <button className="modal-button" onClick={onClose}>Aceptar</button>
-          </div>
+  const SuccessModal = ({ onClose }) => (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <button className="modal-close-btn" onClick={onClose}>
+          <X size={24} />
+        </button>
+        <div className="success-message">
+          <h2>¡Producto publicado!</h2>
+          <p>Tu producto ha sido publicado exitosamente.</p>
+          <button className="modal-button" onClick={onClose}>Aceptar</button>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
   return (
     <main>
-     
-      {showSuccessModal && (
-        <SuccessModal onClose={() => setShowSuccessModal(false)} />
-      )}
-      
+      {showSuccessModal && <SuccessModal onClose={() => setShowSuccessModal(false)} />}
+
       <div className="sell-header">
         <h1>Vender un producto</h1>
       </div>
       <div className="container">
         <form onSubmit={handleSubmit} className="form">
-          <div className="form-group">
-            <label htmlFor="name">Nombre del producto</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="price">Precio (COP)</label>
-            <input
-              type="number"
-              id="price"
-              name="price"
-              value={formData.price}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="description">Descripción</label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="tags">Etiquetas (separadas por comas)</label>
-            <input
-              type="text"
-              id="tags"
-              name="tags"
-              value={formData.tags}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="imageUrl">URL de la imagen principal</label>
-            <input
-              type="url"
-              id="imageUrl"
-              name="imageUrl"
-              value={formData.imageUrl}
-              onChange={handleChange}
-              required
-            />
-          </div>
+          {Object.entries(formData).map(([key, value]) => (
+            <div key={key} className="form-group">
+              <label htmlFor={key}>{key.replace(/([A-Z])/g, ' $1').trim()}</label>
+              <input
+                type={key === "price" ? "number" : "text"}
+                id={key}
+                name={key}
+                value={value}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          ))}
 
           <div className="form-group">
             <label>¿Añadir más imágenes?</label>
