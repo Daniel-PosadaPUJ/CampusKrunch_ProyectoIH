@@ -23,13 +23,16 @@ export default function CommentSection({ productId }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
+    // Evitar que el formulario recargue la página
     e.preventDefault();
     if (!newComment.trim()) return;
 
     setIsSubmitting(true);
 
+    // Simular envío de comentario a servidor, esperando 500 ms
     setTimeout(() => {
       const comment = {
+        // Devuelve el número de milisegundos transcurridos desde el 1 de enero de 1970 
         id: Date.now().toString(),
         user: "Tú",
         content: newComment,
@@ -55,6 +58,7 @@ export default function CommentSection({ productId }) {
           <div className="input-field">
             <textarea
               value={newComment}
+              // e.target.value es el valor del textarea
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Escribe un comentario..."
               rows={3}

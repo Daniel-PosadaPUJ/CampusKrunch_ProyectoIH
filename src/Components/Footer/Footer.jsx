@@ -1,17 +1,8 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Mail, MapPin, Phone, ArrowUp } from 'lucide-react';
 import "./Footer.css";
 
 export default function Footer() {
-  const [emailSubscription, setEmailSubscription] = useState("");
-  
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    console.log("Suscrito:", emailSubscription);
-    setEmailSubscription("");
-  };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -19,16 +10,15 @@ export default function Footer() {
     });
   };
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = "2025";
 
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          {/* Top section with columns */}
           <div className="footer-columns">
-            <div className="footer-column">
-              <h3 className="footer-title">Campus Kruch</h3>
+            <div className="footer-column footer-column-1">
+              <h3 className="footer-title" onClick={scrollToTop} style={{ cursor: 'pointer' }}>Campus Kruch</h3>
               <p className="footer-description">
                 La plataforma de compra y venta para estudiantes universitarios.
                 Encuentra lo que necesitas o vende lo que ya no usas.
@@ -46,7 +36,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="footer-column">
+            <div className="footer-column footer-column-2">
               <h4 className="footer-subtitle">Enlaces rápidos</h4>
               <nav className="footer-nav">
                 <Link to="/vender" className="footer-link">Vender</Link>
@@ -57,7 +47,7 @@ export default function Footer() {
               </nav>
             </div>
 
-            <div className="footer-column">
+            <div className="footer-column footer-column-3">
               <h4 className="footer-subtitle">Categorías</h4>
               <nav className="footer-nav">
                 <Link to="/categoria/electronica" className="footer-link">Electrónica</Link>
@@ -68,7 +58,7 @@ export default function Footer() {
               </nav>
             </div>
 
-            <div className="footer-column">
+            <div className="footer-column footer-column-4">
               <h4 className="footer-subtitle">Contacto</h4>
               <div className="contact-info">
                 <div className="contact-item">
@@ -87,29 +77,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Newsletter subscription */}
-          <div className="newsletter-section">
-            <h4 className="newsletter-title">Suscríbete a nuestro boletín</h4>
-            <p className="newsletter-description">Recibe notificaciones sobre nuevos productos y ofertas especiales</p>
-            <form onSubmit={handleSubscribe} className="newsletter-form">
-              <div className="newsletter-input-container">
-                <Mail className="newsletter-icon" size={18} />
-                <input
-                  type="email"
-                  value={emailSubscription}
-                  onChange={(e) => setEmailSubscription(e.target.value)}
-                  className="newsletter-input"
-                  placeholder="Tu correo electrónico"
-                  required
-                />
-              </div>
-              <button type="submit" className="newsletter-button">
-                Suscribirse
-              </button>
-            </form>
-          </div>
-
-          {/* Bottom section with copyright and back to top */}
           <div className="footer-bottom">
             <div className="copyright">
               &copy; {currentYear} Campus Kruch. Todos los derechos reservados.
@@ -118,9 +85,6 @@ export default function Footer() {
               <Link to="/terminos" className="footer-bottom-link">Términos y Condiciones</Link>
               <Link to="/privacidad" className="footer-bottom-link">Política de Privacidad</Link>
             </div>
-            <button onClick={scrollToTop} className="back-to-top" aria-label="Volver arriba">
-              <ArrowUp size={20} />
-            </button>
           </div>
         </div>
       </div>
