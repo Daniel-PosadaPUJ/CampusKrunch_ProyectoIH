@@ -19,7 +19,7 @@ export default function SellPage() {
   const [additionalImagesCount, setAdditionalImagesCount] = useState(0);
   const [additionalImages, setAdditionalImages] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -65,21 +65,21 @@ export default function SellPage() {
     setTimeout(() => {
       setIsSubmitting(false);
       resetForm();
-      setShowSuccessModal(true);
-      setTimeout(() => setShowSuccessModal(false), 3000);
+      setShowSuccessPopup(true);
+      setTimeout(() => setShowSuccessPopup(false), 3000);
     }, 1500);
   };
 
-  const SuccessModal = ({ onClose }) => (
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <button className="modal-close-btn" onClick={onClose}>
+  const SuccessPopup = ({ onClose }) => (
+    <div className="popup-overlay">
+      <div className="popup-content">
+        <button className="popup-close-btn" onClick={onClose}>
           <X size={24} />
         </button>
         <div className="success-message">
           <h2>¡Producto publicado!</h2>
           <p>Tu producto ha sido publicado exitosamente.</p>
-          <button className="modal-button" onClick={onClose}>Aceptar</button>
+          <button className="popup-button" onClick={onClose}>Aceptar</button>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ export default function SellPage() {
 
   return (
     <main>
-      {showSuccessModal && <SuccessModal onClose={() => setShowSuccessModal(false)} />}
+      {showSuccessPopup && <SuccessPopup onClose={() => setShowSuccessPopup(false)} />}
 
       <div className="sell-header">
         <h1>Vender un producto</h1>
